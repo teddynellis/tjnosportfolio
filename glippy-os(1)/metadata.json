@@ -1,0 +1,6 @@
+{
+  "name": "TJN.OS",
+  "description": "A high-fidelity Frutiger Aero inspired operating system interface featuring a boot sequence, desktop environment, file explorer, and media player.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

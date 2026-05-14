@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-primary: #005fac;
+  --color-primary-container: #0078d7;
+  --color-tertiary: #006d36;
+  --color-tertiary-container: #008946;
+  --color-surface: #f7f9fc;
+  --color-surface-container: #eceef1;
+  --color-surface-container-high: #e6e8eb;
+  --color-surface-container-low: #f2f4f7;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #414752;
+  --color-outline: #717784;
+  --color-outline-variant: #c0c7d4;
+  --color-error: #ba1a1a;
+}
+
+@layer utilities {
+  .crt-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  .crt-effect::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%),
+      linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 255, 255, 0.02));
+    z-index: 50;
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+  }
+  .crt-effect::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+    z-index: 51;
+    pointer-events: none;
+  }
+
+  .glass-panel {
+    @apply backdrop-blur-[20px] bg-white/70 border border-white/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_8px_32px_rgba(0,0,0,0.1)];
+  }
+
+  .glossy-button {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.05) 100%);
+    @apply border border-black/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)];
+  }
+
+  .aero-window {
+    @apply border border-outline shadow-[0_10px_40px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.8)];
+  }
+
+  .candy-cane-fill {
+    background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.2) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.2) 75%,
+      transparent 75%,
+      transparent
+    );
+    background-size: 40px 40px;
+    animation: candy-cane 2s linear infinite;
+  }
+
+  @keyframes candy-cane {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 40px 0;
+    }
+  }
+
+  .gloss-reflection {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+}
+
+body {
+  font-family: inherit;
+  @apply antialiased overflow-hidden;
+}
